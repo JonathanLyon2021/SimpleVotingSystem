@@ -41,3 +41,89 @@ the array. <br>
 e. Implement a voteForCandidate(string) function, which votes for a given candidate. <br>
 f. Implement a totalVotesFor(string) function, which returns the count of votes for a candidate. <br>
 g. To be able to compare strings we can first hash them with keccak256() and compare their hashes. <br>
+
+
+# Problem 2. Setup the Development Environment
+
+1. Install ganache-cli:
+Remember, you may need administrator permissions if errors occur.
+
+                    npm install –g ganache-cli@6.12.2
+                    
+2. Run ganache-cli:
+Do not close this terminal. Let it run in the background as we continue with other tasks.
+
+                    ganache-cli
+                    
+3. On a new terminal in your workspace, run node.
+
+# Problem 3 Compiling the Contract 
+
+1. Require the web3 library:
+
+                    Web3 = require('web3')
+                    
+2. Initialize the provider. You have to set the number of confirmations, timeout and defaultBlock:
+
+                    const OPTIONS = {defaultBlock :"latest", transactionConfirmationBlocks: 1,
+                    transactionBlockTimeout: 5}
+                    
+                    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"), null, OPTIONS)
+                    
+* Tip: If the console gets messy due to long outputs, press CTRL + L to clear the console.*
+
+3. Retrieve and store all our available accounts. We can do that with web3.eth.getAccounts(). This returns a
+promise, so what we are going to do is to store the data in an accounts array for easy access.
+
+                    web3.eth.getAccounts().then(web3Accounts => {accounts = web3Accounts})
+                    
+                    accounts
+                    
+4. Read the contract and store it as a variable so we can have an easy access for later use:
+
+                    code = fs.readFileSync('contracts/Voting.sol').toString()
+                    
+                    
+5. Require solidity compiler (solc):
+
+                    solc = require('solc')
+                    
+6. Compile the code. At this point, you would already have the bytecode, metadata, interface, and so on:
+
+                    compiledCode = solc.compile(code)
+                    
+If you run into solc compiler issues,
+Copy the code below (otherwise, disregard and continue):
+                    
+                    var solcInput = {
+                    language: "Solidity",
+                    sources: {
+                    contract: {
+                    content: code
+                    }
+                    },
+                    settings: {
+                    optimizer: {
+                    enabled: true
+                    },
+                    evmVersion: "byzantium",
+                    outputSelection: {
+                    "*": {
+                    "": ["legacyAST", "ast"],
+                    "*": [
+                    "abi",
+                    "evm.bytecode.object",
+                    "evm.bytecode.sourceMap",
+                    "evm.deployedBytecode.object",
+                    "evm.deployedBytecode.sourceMap",
+                    "evm.gasEstimates"
+                    ]
+                    }
+                    }
+                    }
+                    };
+                    solcInput = JSON.stringify(solcInput);
+                    compiledCode = solc.compile(solcInput);
+                    
+If you’re curious on what each property does, see the docs here:
+https://solidity.readthedocs.io/en/v0.5.0/using-the-compiler.html#compiler-input-and-output-json-description
