@@ -8,13 +8,13 @@ implementing the voting contract, deploying to the local test blockchain, and in
 
 # Prerequisites
 
-• NodeJS v16.15.0: https://nodejs.org/en/
-• Ganache CLI v6.12.2
-• Truffle v5.4.15
-• Solc v0.8.13
-• Web3 v3.0.0-rc.5
-• Windows Build Tools
+• NodeJS v16.15.0: https://nodejs.org/en/ <br>
+• Ganache CLI v6.12.2 <br>
+• Truffle v5.4.15 <br>
+• Solc v0.8.13 <br>
+• Web3 v3.0.0-rc.5 <br>
+• Windows Build Tools <br>
 
-          `npm install --global --production windows-build-tools`
+          npm install --global --production windows-build-tools
           
           
