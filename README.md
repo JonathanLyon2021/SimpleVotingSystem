@@ -129,9 +129,18 @@ If you’re curious on what each property does, see the docs here:
 https://solidity.readthedocs.io/en/v0.5.0/using-the-compiler.html#compiler-input-and-output-json-description
 
 # Problem 4 Deploy the Contract 
-Retrieve the abiDefinition in JSON format by calling the command:
+1. Retrieve the abiDefinition in JSON format by calling the command:
 
-                    abiDefinition = JSON.parse(compiledCode)['contracts']['contract']['Voting']['abi']
+           abiDefinition = JSON.parse(compiledCode)['contracts']['contract']['Voting']['abi']
                     
-                    
+2. Create the instance of the contract.
+Notice that we first pass the ABI definition then we pass an object where we specify the account that we want
+to deploy from and the gas limit. In our case, we have a previous accounts array with all available accounts and
+we use the one at index 0 (the first account).
 
+          VotingContract = new web3.eth.Contract(abiDefinition)
+
+3. Lastly, we need the byteCode of the contract. Use this code to retrieve it:
+
+          byteCode =
+          JSON.parse(compiledCode)['contracts']['contract']['Voting']['evm']['bytecode']['object']
