@@ -151,4 +151,18 @@ we use the one at index 0 (the first account).
           4700000}).then(instance => {contractInstance = instance})
 
           contractInstance          
+          
+          
+# Problem 5 Interact with the Contract
+1. Interact with the deployed contract starting with adding candidates (Tristan and Rave) and sending the
+transactions from a different account (Account 1).
+Remember, we have all accounts in our accounts[] variable declared previously.
 
+          contractInstance.methods.addCandidate('Tristan').send({from:
+          accounts[1]}).then(result => console.log(result))
+
+          contractInstance.methods.addCandidate('Rave').send({from:
+          accounts[1]}).then(result => console.log(result))
+
+We should be able to see the information about the transactions that happened during the method executions and we should see
+that as well in our ganache.
