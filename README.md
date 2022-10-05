@@ -178,3 +178,11 @@ that as well in our ganache.
           contractInstance.methods.voteForCandidate('Rave').send({from:
           accounts[3]}).then(result => console.log(result))
 
+Let’s check Ganache again and see what happened there
+It should have some new transactions as writing to the contract costs ether.
+
+3. Check the votes for the candidates. Notice that we don’t use the .send() function here as reading from contracts
+is free, so we use .call() instead.
+Before we proceed, check the balances first:
+
+          balances = accounts.map(account => web3.eth.getBalance(account))
