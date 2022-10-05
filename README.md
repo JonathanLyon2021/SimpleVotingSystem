@@ -127,3 +127,11 @@ Copy the code below (otherwise, disregard and continue):
                     
 If you’re curious on what each property does, see the docs here:
 https://solidity.readthedocs.io/en/v0.5.0/using-the-compiler.html#compiler-input-and-output-json-description
+
+# Problem 4 Deploy the Contract 
+Retrieve the abiDefinition in JSON format by calling the command:
+
+                    abiDefinition = JSON.parse(compiledCode)['contracts']['contract']['Voting']['abi']
+                    
+                    
+
