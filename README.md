@@ -186,3 +186,23 @@ is free, so we use .call() instead.
 Before we proceed, check the balances first:
 
           balances = accounts.map(account => web3.eth.getBalance(account))
+
+          balances
+          
+Check the total votes using Account at index 5:
+
+          contractInstance.methods.totalVotesFor('Rave').call({from:
+          accounts[5]}).then(result => console.log(result.toString()))
+
+          contractInstance.methods.totalVotesFor('Tristan').call({from:
+          accounts[5]}).then(result => console.log(result.toString()))
+
+Check our balances again to make sure that this reading didn’t take any ETH from us.
+
+          balances = accounts.map(account => web3.eth.getBalance(account))
+
+          balances
+          
+And, it seems that there have been no new transactions.
+We have determined that reading from a contract is free.
+Congratulations! You have completed the Simple Voting System Dapp!
