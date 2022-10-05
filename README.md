@@ -166,3 +166,15 @@ Remember, we have all accounts in our accounts[] variable declared previously.
 
 We should be able to see the information about the transactions that happened during the method executions and we should see
 that as well in our ganache.
+
+2. Vote for Candidates:
+
+          contractInstance.methods.voteForCandidate('Rave').send({from:
+          accounts[1]}).then(result => console.log(result))
+          
+          contractInstance.methods.voteForCandidate('Tristan').send({from:
+          accounts[2]}).then(result => console.log(result))
+          
+          contractInstance.methods.voteForCandidate('Rave').send({from:
+          accounts[3]}).then(result => console.log(result))
+
