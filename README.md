@@ -144,3 +144,11 @@ we use the one at index 0 (the first account).
 
           byteCode =
           JSON.parse(compiledCode)['contracts']['contract']['Voting']['evm']['bytecode']['object']
+          
+4. Now we will deploy the contract and store the instance of the contract in contractInstance:
+
+          VotingContract.deploy({data:byteCode}).send({from:accounts[0],gas:
+          4700000}).then(instance => {contractInstance = instance})
+
+          contractInstance          
+
