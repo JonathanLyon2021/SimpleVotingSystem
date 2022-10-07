@@ -11,4 +11,9 @@ contract Voting {
        //this method will add candidates to the array
        candidateList.push(candidateNames);
     }
+    
+     function validCandidate(string memory candidate) public view returns (bool) {
+        for(uint i = 0; i < candidateList.length; i++) {
+        }
+    }
 }
