@@ -13,7 +13,11 @@ contract Voting {
     }
     
      function validCandidate(string memory candidate) public view returns (bool) {
+        //this method checks whether the given candidate is contained in the array
         for(uint i = 0; i < candidateList.length; i++) {
+         if (keccak256(bytes (candidateList[i])) == keccak256(bytes (candidate))) {
+                return true;
+            }
         }
     }
 }
