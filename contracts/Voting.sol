@@ -8,6 +8,7 @@ contract Voting {
     string[] public candidateList; //this array will store the list of candidates
     
      function addCandidate(string memory candidateNames) public {
-        candidateList.push(candidateNames);
+       //this method will add candidates to the array
+       candidateList.push(candidateNames);
     }
 }
