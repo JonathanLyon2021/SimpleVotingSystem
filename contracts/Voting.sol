@@ -20,4 +20,10 @@ contract Voting {
             }
         }
     }
+    
+     function voteForCandidate(string memory candidate) public {
+        //this method votes for a given candidate
+        require(validCandidate(candidate), "Must be valid candidate");
+        votesReceived[keccak256(bytes (candidate))] += 1;
+    }
 }
