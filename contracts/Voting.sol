@@ -26,4 +26,10 @@ contract Voting {
         require(validCandidate(candidate), "Must be valid candidate");
         votesReceived[keccak256(bytes (candidate))] += 1;
     }
+    
+    function totalVotesFor(string memory candidate) public view returns (uint8) {
+        //this method returns the total votes a candidate has received so far
+        require(validCandidate(candidate), "Must be valid candidate");
+        return votesReceived[keccak256(bytes (candidate))];
+    }
 }
