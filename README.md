@@ -14,7 +14,7 @@ implementing the voting contract, deploying to the local test blockchain, and in
 • Solc v0.8.13 <br>
 • Web3 v3.0.0-rc.5 <br>
 • Windows Build Tools <br>
-          (Tip: After you install "Windows Build Tools" for the first time, you might have to re-start your computer. At least this was what I had to do for Windows OS.)
+          (Tip: After you install "Windows Build Tools" for the first time, you might have to re-start your computer. This was what I had to do for Windows OS.)
 
           npm install --global --production windows-build-tools
           
